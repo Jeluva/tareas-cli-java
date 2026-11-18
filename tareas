@@ -1,0 +1,5 @@
+#!/bin/sh
+# Compila si hace falta y ejecuta.
+D="$(cd "$(dirname "$0")" && pwd)"
+[ -d "$D/out" ] || javac -d "$D/out" "$D"/src/tareas/*.java || exit 1
+exec java -cp "$D/out" tareas.Main "$@"
